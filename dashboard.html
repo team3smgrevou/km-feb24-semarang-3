@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Vending Machine</title>
+</head>
+
+<body>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <a href="."><img src="T3.png" alt=""></a>
+                </span>
+
+                <div class="text logo-text">
+                    <span class="name">Dashboard</span>
+                    <span class="name">Analytics</span>
+                </div>
+            </div>
+
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="index.html">
+                            <i class='bx bx-home-alt icon'></i>
+                            <span class="text nav-text">Home</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="dashboard.html">
+                            <i class='bx bx-pie-chart-alt icon'></i>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+
+                <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTENT -->
+    <section class="home">
+        <div class="text">DASHBOARD VENDING MACHINE</div>
+        <div class="page-content">
+            
+            <h5>​Sales By Category</h5>
+
+            <div class="analytics">
+
+                <div class="card">
+                    <div class="card-head">
+                        <h2>5.293</h2>
+
+                    </div>
+                    <div class="card-progress">
+                        <small>Food</small>
+                        <div class="card-indicator">
+                            <div class="indicator one" style="width: 60%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-head">
+                        <h2>657</h2>
+                        <span class="las la-eye"></span>
+                    </div>
+                    <div class="card-progress">
+                        <small>Water</small>
+                        <div class="card-indicator">
+                            <div class="indicator two" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-head">
+                        <h2>2.377</h2>
+                        <span class="las la-shopping-cart"></span>
+                    </div>
+                    <div class="card-progress">
+                        <small>Carbonated</small>
+                        <div class="card-indicator">
+                            <div class="indicator three" style="width: 65%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-head">
+                        <h2>1.023</h2>
+                        <span class="las la-envelope"></span>
+                    </div>
+                    <div class="card-progress">
+                        <small>Non Carbonated</small>
+                        <div class="card-indicator">
+                            <div class="indicator four" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        </div>
+
+        <div class="grapBox">
+                <div class="box">
+                <h5>Sales in BSQ Mall</h5>
+                <canvas id="donat" width="300"></canvas>
+            </div>
+    
+            <div class="box">
+                <h5>Average Basket Size by Location</h5>
+                <canvas id="barchart" width="600"></canvas>
+            </div>
+        </div>
+
+        <div class="grapBox2">
+            <div class="box">
+                <h5>Average Basket Size by Category</h5>
+                <canvas id="barchart2" width="550"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+    <script src="script.js"></script>
+    <script src="chart1.js"></script>
+    <script src="chart2.js"></script>
+    <script src="chart3.js"></script>
+</body>
+
+</html>
