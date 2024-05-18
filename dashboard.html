@@ -12,11 +12,12 @@
 </head>
 
 <body>
+    <!--SIDEBAR-->
     <nav class="sidebar close">
         <header>
             <div class="image-text">
                 <span class="image">
-                    <a href="."><img src="T3.png" alt=""></a>
+                    <a href="."><img src="T3.png"></a>
                 </span>
 
                 <div class="text logo-text">
@@ -48,13 +49,46 @@
                 </ul>
             </div>
 
-            
+            <div class="bottom-content">
+
+                <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+            </div>
         </div>
     </nav>
 
+    <!--HEADER-->
+    <input type="checkbox" id="menu-toggle">
+    <header class="main-header">
+        <div class="search">
+            <ul>
+                <li class="search-box">
+                    <i class='bx bx-search icon'></i>
+                    <input type="text" placeholder="Search...">
+                </li>
+            </ul>
+        </div>
+        <div class="header-menu">
+            <div class="user">
+                <div class="client-img">
+                    <i class='bx bx-user'></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
     <!-- CONTENT -->
     <section class="home">
-        <div class="text">DASHBOARD VENDING MACHINE</div>
+        <!--<div class="text">DASHBOARD VENDING MACHINE</div>-->
         <div class="page-content">
             
             <h5>​Sales By Category</h5>
@@ -165,9 +199,6 @@
     <script src="chart4.js"></script>
     <script src="chart5.js"></script>
     <script src="chart6.js"></script>
-
-    
-
 </body>
 
 </html>
