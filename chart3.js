@@ -1,12 +1,12 @@
 var ctx3 = document.getElementById('chart3').getContext('2d');
 var myChart = new Chart(ctx3, {
-    type: 'line',
+    type: 'bar',
     data: {
         labels: ['GuttenPlans', 'EB Public Library','Brunswick Sq Mall','Earle Asphalt',],
         datasets: [{
             label: 'Transaction Total (Cash)',
             data: [5210.5, 3100.75, 1845.75, 1220.5],
-            backgroundColor: '(165, 42, 42, 1)', 
+            backgroundColor: 'rgba(165, 42, 42, 1)', 
             borderColor: 'rgba(165, 42, 42, 1)', 
             borderWidth: 1
         }, {
