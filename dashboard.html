@@ -1,196 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Vending Machine</title>
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<!-- My CSS -->
+	<link rel="stylesheet" href="styles.css">
+	<title>Team 3 Semarang</title>
 </head>
 
 <body>
-    <!--SIDEBAR-->
-    <nav class="sidebar close">
-        <header>
-            <div class="image-text">
-                <span class="image">
-                    <a href="."><img src="T3.png"></a>
-                </span>
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<i class='bx'></i>
+			<span class="text">Team 3 SMG</span>
+		</a>
+		<ul class="side-menu top">
+			<li class="active">
+				<a href="#">
+					<i class='bx bxs-dashboard' ></i>
+					<span class="text">Dashboard VM</span>
+				</a>
+			</li>
+		</ul>
+		<ul class="side-menu">
+		</ul>
+	</section>
+	<!-- SIDEBAR -->
 
-                <div class="text logo-text">
-                    <span class="name">Dashboard</span>
-                    <span class="name">Analytics</span>
-                </div>
-            </div>
 
-            <i class='bx bx-chevron-right toggle'></i>
-        </header>
 
-        <div class="menu-bar">
-            <div class="menu">
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu' ></i>
+			<form action="#">
+				<div class="form-input">
+					<input type="search" placeholder="Search...">
+					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+				</div>
+			</form>
+			<a href="#" class="profile">
+				<img src="T3.png">
+			</a>
+		</nav>
+		<!-- NAVBAR -->
 
-                <ul class="menu-links">
-                    <li class="nav-link">
-                        <a href="index.html">
-                            <i class='bx bx-home-alt icon'></i>
-                            <span class="text nav-text">Home</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="dashboard.html">
-                            <i class='bx bx-pie-chart-alt icon'></i>
-                            <span class="text nav-text">Dashboard</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="bottom-content">
-
-                <li class="mode">
-                    <div class="sun-moon">
-                        <i class='bx bx-moon icon moon'></i>
-                        <i class='bx bx-sun icon sun'></i>
-                    </div>
-                    <span class="mode-text text">Dark mode</span>
-
-                    <div class="toggle-switch">
-                        <span class="switch"></span>
-                    </div>
-                </li>
-            </div>
-        </div>
-    </nav>
-
-    <!--HEADER-->
-    <input type="checkbox" id="menu-toggle">
-    <header class="main-header">
-        <div class="search">
-            <ul>
-                <li class="search-box">
-                    <i class='bx bx-search icon'></i>
-                    <input type="text" placeholder="Search...">
-                </li>
+		<!-- MAIN -->
+		<main>
+			<span class="text">
+				<h3>Sales By Category</h3>
+			</span>
+			
+			<ul class="box-info">
+				<li>
+					<span class="text">
+						<h3>5.293</h3>
+						<p>Food</p>
+					</span>
+				</li>
+				<li>
+					<span class="text">
+						<h3>657</h3>
+						<p>Water</p>
+					</span>
+				</li>
+				<li>
+					<span class="text">
+						<h3>2.377</h3>
+						<p>Carbonated</p>
+					</span>
+				</li>
+				<li>
+					<span class="text">
+						<h3>1.023</h3>
+						<p>Non Carbonated</p>
+					</span>
+				</li>
+			</ul>
+			
+			<ul class="box">
+				<li style="display: flex; flex-direction: column;">
+                	<h3>Average Basket Size by Location</h3>
+					<div style="width:100%;height:100%">
+						<canvas id="barchart" ></canvas>
+					</div>
+				</li>
+				
+				<li style="display: flex; flex-direction: column;">
+					<h3>Average Basket Size by Category</h3>
+					<div style="width:100%;height:100%">
+						<canvas id="barchart2" ></canvas>
+					</div>
+				</li>
             </ul>
-        </div>
-        <div class="header-menu">
-            <div class="user">
-                <div class="client-img">
-                    <i class='bx bx-user'></i>
-                </div>
+			
+			<ul class="box">
+				<li style="display: flex; flex-direction: column;">
+					<h3>Type by Location</h3>
+					<div style="width:100%;height:100%">
+						<canvas id="chart3"></canvas>
+					</div>
+				</li>
+				
+				<li style="display: flex; flex-direction: column;">
+					<h3>Sales by Month</h3>
+					<div style="width:100%;height:100%">
+						<canvas id="chart4"></canvas>
+					</div>
+				</li>
+            </ul>
+
+			<ul class="box">
+				<li style="display: flex; flex-direction: column;">
+					<h3>Sales Category by Location</h3>
+					<div style="width:100%;height:100%">
+						<canvas id="chart5" ></canvas>
+					</div>
+				</li>
+				
+				<li style="display: flex; flex-direction: column;">
+				<h3>Sales in BSQ Mall</h3>
+				<div style="width:50%;height:100%">
+					<canvas id="chart6" ></canvas>
+				</div>
+				</li>
+            </ul>			
             </div>
-        </div>
-    </header>
+			<div class="table-data">
+				<div class="order">
+					<div class="head">
+						<h3>Top Product By Sales</h3>
+						<i class='bx bx-search' ></i>
+						<i class='bx bx-filter' ></i>
+					</div>
+					<table>
+						<thead>
+							<tr>
+								<th>Product</th>
+								<th>Location</th>
+								<th>Sold</th>
+							</tr>
+						</thead>
+						<tbody id="valData">
+						</tbody>
+					</table>
+					
+				</div>
+			</div>
+			<div class="table-data">
+				<div class="order">
+					<div class="head">
+						<h3>Top Product By AVG</h3>
+						<i class='bx bx-search' ></i>
+						<i class='bx bx-filter' ></i>
+					</div>
+					<table>
+						<thead>
+							<tr>
+								<th>Product</th>
+								<th>Category</th>
+								<th>Sold</th>
+							</tr>
+						</thead>
+						<tbody id="valSales">
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+	<!-- FOOTER -->
+    <footer>
+        <p>&copy; 2024 Team 3 Semarang. All rights reserved.</p>
+    </footer>
+    <!-- FOOTER -->
 
-    <!-- CONTENT -->
-    <section class="home">
-        <!--<div class="text">DASHBOARD VENDING MACHINE</div>-->
-        <div class="page-content">
-            
-            <h5>​Sales By Category</h5>
-
-            <div class="analytics">
-
-                <div class="card">
-                    <div class="card-head">
-                        <h2>5.293</h2>
-
-                    </div>
-                    <div class="card-progress">
-                        <small>Food</small>
-                        <div class="card-indicator">
-                            <div class="indicator one" style="width: 60%"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-head">
-                        <h2>657</h2>
-                        <span class="las la-eye"></span>
-                    </div>
-                    <div class="card-progress">
-                        <small>Water</small>
-                        <div class="card-indicator">
-                            <div class="indicator two" style="width: 80%"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-head">
-                        <h2>2.377</h2>
-                        <span class="las la-shopping-cart"></span>
-                    </div>
-                    <div class="card-progress">
-                        <small>Carbonated</small>
-                        <div class="card-indicator">
-                            <div class="indicator three" style="width: 65%"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-head">
-                        <h2>1.023</h2>
-                        <span class="las la-envelope"></span>
-                    </div>
-                    <div class="card-progress">
-                        <small>Non Carbonated</small>
-                        <div class="card-indicator">
-                            <div class="indicator four" style="width: 90%"></div>
-                        </div>
-                    </div>
-                </div>  
-            </div>
-        </div>
-
-        <div class="grapBox">
-            
-    
-            <div class="box">
-                <h5>Average Basket Size by Location</h5>
-                <canvas id="barchart" width="600"></canvas>
-            </div>
-
-            <div class="box">
-                <h5>Average Basket Size by Category</h5>
-                <canvas id="barchart2" width="550"></canvas>
-            </div>
-
-            <div class="box">
-                <h5>Type by Location</h5>
-                <canvas id="chart4" width="550"></canvas>
-            </div>
-
-            <div class="box" >
-                <h5>Sales by Month</h5>
-                <canvas id="chart5" width="600"></canvas>
-            </div>
-
-            <div class="box">
-                <h5>Sales Category by Location</h5>
-                <canvas id="chart6" width="600"></canvas>
-            </div>
-            <div class="box" style="width: 300px;  height: 400px;">
-                <h5>Sales in BSQ Mall</h5>
-                <canvas id="donat"></canvas>
-            </div>
-
-            
-            
-            
-           
-            
-        </div>
-        
-
-    </section>
-
+	<script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
     <script src="script.js"></script>
     <script src="chart1.js"></script>
@@ -199,7 +191,60 @@
     <script src="chart4.js"></script>
     <script src="chart5.js"></script>
     <script src="chart6.js"></script>
-</body>
 
+	<script>
+		const dataJSON = [
+			{product: 'Monster Energy Original', location: 'GuttenPlans', sold:1.284},
+			{product: 'Red Bull - Original', location: 'GuttenPlans', sold:777},
+			{product: 'Coca Cola - Zero Sugar', location: 'EB Public Library', sold:585},
+			{product: 'KitKat - Crisp Wafers', location: 'GuttenPlans', sold:562},
+			{product: 'Starbucks Doubleshot Energy - Mocha', location: 'EB Public Library', sold:497},
+		]
+		for (var i=0;i<dataJSON.length;i++){
+			const valueJSON = document.createElement("tr")
+			const valProduct = document.createElement("td")
+			valProduct.innerHTML = dataJSON[i].product
+
+			const valLocation = document.createElement("td")
+			valLocation.innerHTML = dataJSON[i].location
+
+			const valSold = document.createElement("td")
+			valSold.innerHTML = dataJSON[i].sold
+			
+			document.getElementById("valData").appendChild(valueJSON)
+			document.getElementById("valData").appendChild(valProduct)
+			document.getElementById("valData").appendChild(valLocation)
+			document.getElementById("valData").appendChild(valSold)
+
+		}
+	</script>
+
+	<script>
+		const dataJSON1 = [
+			{product: 'Ice Breakers Ice Cubes - PepperMint', category: 'Food', sold:5},
+			{product: 'Skippy Peanut Butter - Go Paks', category: 'Food', sold:5},
+			{product: 'CheezIt - Go Paks', category: 'Food', sold:4},
+			{product: 'Starbucks Doubleshot Energy - Mocha', category: 'Non Carbonated', sold:4},
+			{product: 'Red Bull - Energy Drink - Sugar Free', category: 'Carbonated', sold:4},
+		]
+		for (var i=0;i<dataJSON1.length;i++){
+			const valueJSON1 = document.createElement("tr")
+			const valProduct = document.createElement("td")
+			valProduct.innerHTML = dataJSON1[i].product
+
+			const valCategory = document.createElement("td")
+			valCategory.innerHTML = dataJSON1[i].category
+
+			const valSold = document.createElement("td")
+			valSold.innerHTML = dataJSON1[i].sold
+			
+			document.getElementById("valSales").appendChild(valueJSON1)
+			document.getElementById("valSales").appendChild(valProduct)
+			document.getElementById("valSales").appendChild(valCategory)
+			document.getElementById("valSales").appendChild(valSold)
+		}
+	</script>
+
+</body>
 </html>
 
