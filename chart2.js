@@ -1,12 +1,12 @@
-const ctx2 = document.getElementById('barchart');
+const ctx2 = document.getElementById('barchart2');
 
-const barchart = new Chart(ctx2, {
+const barchart2 = new Chart(ctx2, {
   type: 'bar',
   data: {
-    labels: ['EB Public Library', 'GuttenPlans', 'Brunswick Sq Mall', 'Earle Asphalt'],
+    labels: ['Non Carbonated', 'Carbonated', 'Food', 'Water'],
     datasets: [{
-      label: 'Rata-Rata Transaksi',
-      data: [2.2, 2, 2, 1.8],
+      label: 'Average Transaction',
+      data: [2.9, 2.2, 2, 2,],
       backgroundColor: [
           'rgba(165, 42, 42, 1)',
           
