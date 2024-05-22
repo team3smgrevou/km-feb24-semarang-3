@@ -360,7 +360,7 @@ body {
 
 #content main .box-info {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 	grid-gap: 20px;
 	margin-top: 36px;
 }
@@ -653,4 +653,3 @@ footer p {
 		min-width: 420px;
 	}
 }
-
