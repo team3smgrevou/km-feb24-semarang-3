@@ -6,7 +6,7 @@ const barchart2 = new Chart(ctx2, {
     labels: ['Non Carbonated', 'Carbonated', 'Food', 'Water'],
     datasets: [{
       label: 'Average Transaction',
-      data: [2.9, 2.2, 2, 2,],
+      data: [2.9, 2.2, 2, 2],
       backgroundColor: [
           'rgba(165, 42, 42, 1)',
           
