@@ -654,37 +654,3 @@ footer p {
 	}
 }
 
-.grapBox {
-    position: relative;
-    width: 500px;
-    padding: 20px;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 20px;
-    min-height: 200px;
-    box-sizing: border-box;
-}
-
-.grapBox2 {
-    position: relative;
-    width: 500px;
-    padding: 20px;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 20px;
-    min-height: 200px;
-    box-sizing: border-box;
-}
-
-
-.box {
-    position: relative;
-    background-color: white;
-    padding: 10px;
-    width: 100%;
-    box-shadow: 0 7px 25px black;
-    border-radius: 1rem;
-    border: 1px solid #f49131;
-    margin: 0;
-}
-
