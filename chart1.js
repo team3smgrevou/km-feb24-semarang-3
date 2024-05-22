@@ -1,31 +1,30 @@
-const ctx = document.getElementById('donat');
+const ctx1 = document.getElementById('barchart');
 
-const donat = new Chart(ctx, {
-  type: 'doughnut',
+const barchart = new Chart(ctx1, {
+  type: 'bar',
   data: {
-    labels: ['BSQ Mall x1364 - Zales', 'BSQ Mall x1366 - ATT'],
+    labels: ['EB Public Library', 'GuttenPlans', 'Brunswick Sq Mall', 'Earle Asphalt'],
     datasets: [{
-      data: [926, 746],
-      label: 'd',
-      data: [55.4, 44.6],
+      label: 'Average Transaction',
+      data: [2.2, 2, 2, 1.8],
       backgroundColor: [
-          'rgb(255, 0, 0)',
-          'rgb(255, 99, 125)',
+          'rgba(165, 42, 42, 1)',
+          
       ],
       borderColor: [
-          'rgb(255, 0, 0)',
-          'rgb(255, 99, 125)',
+          'rgba(165, 42, 42, 1)',
       ],
       borderWidth: 1
   }]
 },
 options: {
-  plugins: {
-      tooltip: {
-          callbacks: {
-              label: function (context) {
-                  let label = context.parsed + '%';
-                  return label;
+  scales: {
+      y: {
+          beginAtZero: true,
+          ticks: {
+              stepSize: 1,
+              callback: function (value) {
+                  return value + ' ';
               }
           }
       }
