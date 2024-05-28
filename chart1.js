@@ -1,18 +1,24 @@
+import AvgBasketSizeByLocation from './AvgBasketSizeByLocation.json' assert {type: 'json'};
+
+console.log(AvgBasketSizeByLocation);
+
+const location = AvgBasketSizeByLocation.map(entry => entry.location);
+const abs = AvgBasketSizeByLocation.map(entry => parseFloat(entry.ABS));
+
 const ctx1 = document.getElementById('barchart');
 
 const barchart = new Chart(ctx1, {
   type: 'bar',
   data: {
-    labels: ['EB Public Library', 'GuttenPlans', 'Brunswick Sq Mall', 'Earle Asphalt'],
+    labels: location,
     datasets: [{
-      label: 'Average Transaction',
-      data: [2.2, 2, 2, 1.8],
+      label: 'ABS',
+      data: abs,
       backgroundColor: [
-          'rgba(165, 42, 42, 1)',
-          
+          'rgba(190, 0, 0, 0.5)',
       ],
       borderColor: [
-          'rgba(165, 42, 42, 1)',
+          'rgba(190, 0, 0, 1)',
       ],
       borderWidth: 1
   }]
@@ -24,7 +30,7 @@ options: {
           ticks: {
               stepSize: 1,
               callback: function (value) {
-                  return value + ' ';
+                  return value.toFixed(1);
               }
           }
       }
