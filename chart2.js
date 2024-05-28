@@ -1,18 +1,24 @@
+import AvgBasketSizeByCategory from './AvgBasketSizeByCategory.json' assert {type: 'json'};
+
+console.log(AvgBasketSizeByCategory);
+
+const categories = AvgBasketSizeByCategory.map(entry => entry.Category);
+const abs = AvgBasketSizeByCategory.map(entry => parseFloat(entry.ABS));
+
 const ctx2 = document.getElementById('barchart2');
 
 const barchart2 = new Chart(ctx2, {
   type: 'bar',
   data: {
-    labels: ['Non Carbonated', 'Carbonated', 'Food', 'Water'],
+    labels: categories,
     datasets: [{
-      label: 'Average Transaction',
-      data: [2.9, 2.2, 2, 2],
+      label: 'ABS',
+      data: abs,
       backgroundColor: [
-          'rgba(165, 42, 42, 1)',
-          
+        'rgba(190, 0, 0, 0.5)',
       ],
       borderColor: [
-          'rgba(165, 42, 42, 1)',
+        'rgba(190, 0, 0, 1)',
       ],
       borderWidth: 1
   }]
@@ -24,7 +30,7 @@ options: {
           ticks: {
               stepSize: 1,
               callback: function (value) {
-                  return value + ' ';
+                  return value.toFixed(2);
               }
           }
       }
