@@ -1,30 +1,37 @@
-var xValuesLine = ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"];
-var yValuesLine = [884, 909, 1118, 1620, 1589, 1815, 2216, 2041, 1679, 1652, 1532, 1367];
+import salesByMonth from './salesByMonth.json' assert {type: 'json'};
 
+console.log(salesByMonth);
 
-new Chart("chart4", {
-type: "line",
-data: {
-    labels: xValuesLine,
-    datasets: [{
-        label: 'Total Sales',
-        fill: false,
-        lineTension: 0,
-        backgroundColor: "rgba(165, 42, 42, 1)",
-        borderColor: "rgba(165, 42, 42, 1)",
-        data: yValuesLine
-    }]
-},
-options: {
-    scales: {
-        y: {
-            ticks: {
-                stepSize: 1000,
-                callback: function (value, index, values) {
-                    return value;
+// Extract data from JSON
+const xValuesLine = salesByMonth.map(entry => entry.periode);
+const yValuesLine = salesByMonth.map(entry => parseInt(entry.total_sales)); // Convert to integers if necessary
+
+// Create line chart
+var ctx4 = document.getElementById('chart4').getContext('2d');
+var myLineChart = new Chart(ctx4, {
+    type: 'line',
+    data: {
+        labels: xValuesLine,
+        datasets: [{
+            label: 'Total Sales',
+            fill: false,
+            lineTension: 0,
+            backgroundColor: 'rgba(190, 0, 0, 0.5)',
+            borderColor: 'rgba(190, 0, 0, 1)',
+            data: yValuesLine
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    stepSize: 1000,
+                    callback: function (value) {
+                        return value;
+                    }
                 }
             }
         }
     }
-}
 });
