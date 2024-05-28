@@ -1,0 +1,27 @@
+[
+  {
+  "category": "Carbonated",
+  "Brunswick_Sq_Mall": "301",
+  "EB_Public_Library": "499",
+  "Earle_Asphalt": "68",
+  "GuttenPlans": "1529"
+}, {
+  "category": "Food",
+  "Brunswick_Sq_Mall": "814",
+  "EB_Public_Library": "1914",
+  "Earle_Asphalt": "906",
+  "GuttenPlans": "1747"
+}, {
+  "category": "Non Carbonated",
+  "Brunswick_Sq_Mall": "248",
+  "EB_Public_Library": "394",
+  "Earle_Asphalt": "38",
+  "GuttenPlans": "351"
+}, {
+  "category": "Water",
+  "Brunswick_Sq_Mall": "363",
+  "EB_Public_Library": "291",
+  "Earle_Asphalt": "18",
+  "GuttenPlans": null
+}
+]

@@ -1,0 +1,61 @@
+[{
+  "periode": "Jan",
+  "total_sales": "752",
+  "percentase": "4.96042216358839",
+  "sale_growt": null
+}, {
+  "periode": "Feb",
+  "total_sales": "777",
+  "percentase": "5.12532981530343",
+  "sale_growt": "3.32446808510638"
+}, {
+  "periode": "Mar",
+  "total_sales": "937",
+  "percentase": "6.180738786279683",
+  "sale_growt": "20.592020592020589"
+}, {
+  "periode": "Apr",
+  "total_sales": "1341",
+  "percentase": "8.8456464379947217",
+  "sale_growt": "43.116328708644616"
+}, {
+  "periode": "May",
+  "total_sales": "1285",
+  "percentase": "8.4762532981530345",
+  "sale_growt": "-4.175988068605518"
+}, {
+  "periode": "Jun",
+  "total_sales": "1489",
+  "percentase": "9.821899736147758",
+  "sale_growt": "15.875486381322968"
+}, {
+  "periode": "Jul",
+  "total_sales": "1740",
+  "percentase": "11.477572559366754",
+  "sale_growt": "16.856950973807926"
+}, {
+  "periode": "Aug",
+  "total_sales": "1694",
+  "percentase": "11.174142480211081",
+  "sale_growt": "-2.6436781609195381"
+}, {
+  "periode": "Sep",
+  "total_sales": "1394",
+  "percentase": "9.1952506596306058",
+  "sale_growt": "-17.709563164108623"
+}, {
+  "periode": "Oct",
+  "total_sales": "1386",
+  "percentase": "9.1424802110817929",
+  "sale_growt": "-0.57388809182209455"
+}, {
+  "periode": "Nov",
+  "total_sales": "1256",
+  "percentase": "8.2849604221635875",
+  "sale_growt": "-9.3795093795093756"
+}, {
+  "periode": "Dec",
+  "total_sales": "1109",
+  "percentase": "7.3153034300791546",
+  "sale_growt": "-11.70382165605095"
+}]

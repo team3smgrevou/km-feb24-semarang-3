@@ -1,0 +1,13 @@
+[{
+    "Category": "Food",
+    "total_sales": "7597"
+  }, {
+    "Category": "Carbonated",
+    "total_sales": "4445"
+  }, {
+    "Category": "Non Carbonated",
+    "total_sales": "2195"
+  }, {
+    "Category": "Water",
+    "total_sales": "923"
+  }]
