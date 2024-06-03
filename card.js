@@ -1,17 +1,52 @@
-import salesByCategory from './salesByCategory.json' assert { type: 'json' };
+import salesData from './salesByCategory.json' assert { type: 'json' };
 
-console.log(salesByCategory);
+function displaySalesData(categoryFilter, monthFilter) {
+    const salesContainer = document.getElementById('sales-container');
+    salesContainer.innerHTML = ''; // Clear any existing content
 
-function updateCategorySales() {
-   const categories = salesByCategory.reduce((acc, category) => {
-      acc[category.Category] = parseInt(category.total_sales).toLocaleString();
-      return acc;
-   }, {});
+    let filteredData = salesData.total_sales;
 
-   document.getElementById('food-category').querySelector('h3').textContent = categories.Food || 'N/A';
-   document.getElementById('water-category').querySelector('h3').textContent = categories.Water || 'N/A';
-   document.getElementById('carbonated-category').querySelector('h3').textContent = categories.Carbonated || 'N/A';
-   document.getElementById('non-carbonated-category').querySelector('h3').textContent = categories['Non Carbonated'] || 'N/A';
+    if (monthFilter && monthFilter !== 'all') {
+        filteredData = salesData.monthly_sales.filter(item => item.periode === monthFilter);
+    }
+
+    if (categoryFilter && categoryFilter !== 'all') {
+        filteredData = filteredData.filter(item => item.Category.toLowerCase() === categoryFilter.toLowerCase());
+    }
+
+    filteredData.forEach((item, index) => {
+        const listItem = document.createElement('li');
+        listItem.className = 'box';
+
+        const icon = document.createElement('div');
+        icon.className = 'bx';
+        // You can customize this part
+
+        const textContainer = document.createElement('div');
+        textContainer.className = 'text';
+        textContainer.innerHTML = `
+            <h3>${item.total_sales || item.total_quantity}</h3>
+            <p>${item.Category}</p>
+        `;
+
+        listItem.appendChild(icon);
+        listItem.appendChild(textContainer);
+        salesContainer.appendChild(listItem);
+    });
 }
 
-document.addEventListener('DOMContentLoaded', updateCategorySales);
+// Initial call to display all data
+displaySalesData('all', 'all');
+
+// Event listener for the filter
+const categoryFilter = document.getElementById('category-filter');
+const monthFilter = document.getElementById('month-filter');
+
+function updateFilters() {
+    const selectedCategory = categoryFilter.value;
+    const selectedMonth = monthFilter.value;
+    displaySalesData(selectedCategory, selectedMonth);
+}
+
+categoryFilter.addEventListener('change', updateFilters);
+monthFilter.addEventListener('change', updateFilters);
