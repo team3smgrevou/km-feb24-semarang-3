@@ -1,66 +1,80 @@
-import salesCategoryByLocation from './salesCategoryByLocation.json' assert {type : 'json'}
+import salesCategoryByLocation from './salesCategoryByLocation.json' assert { type: 'json' };
 
-console.log(salesCategoryByLocation)
+console.log(salesCategoryByLocation);
 
-var dataJSON = salesCategoryByLocation
+const ctx5 = document.getElementById('chart5').getContext('2d');
+const categoryFilter = document.getElementById('category-filter');
+const monthFilter = document.getElementById('month-filter');
 
-var food =[]
-var carbonated = []
-var nonCarbonated = []
-var water = []
+const colors = {
+    'Carbonated': {
+        backgroundColor: 'rgba(255, 0, 0, 0.5)',
+        borderColor: 'rgba(128, 0, 0, 1)'
+    },
+    'Food': {
+        backgroundColor: 'rgba(200, 0, 0, 0.5)',
+        borderColor: 'rgba(255, 0, 0, 1)'
+    },
+    'Non Carbonated': {
+        backgroundColor: 'rgba(255, 40, 0, 0.5)',
+        borderColor: 'rgba(255, 40, 0, 1)'
+    },
+    'Water': {
+        backgroundColor: 'rgba(248, 131, 121, 0.5)',
+        borderColor: 'rgba(248, 131, 121, 1)'
+    }
+};
 
+function filterData(category, month) {
+    let filteredData = month === 'all' ? salesCategoryByLocation.default : salesCategoryByLocation.periode.filter(entry => entry.Periode.toLowerCase() === month.toLowerCase());
 
-for (var i=0;i<salesCategoryByLocation.length;i++){
-    
-    if (salesCategoryByLocation[i].category == "Food"){
-        food = [salesCategoryByLocation[i].GuttenPlans , salesCategoryByLocation[i].EB_Public_Library , salesCategoryByLocation[i].Brunswick_Sq_Mall , salesCategoryByLocation[i].Earle_Asphalt]
+    if (category !== 'all') {
+        filteredData = filteredData.filter(entry => (entry.category || entry.Category).toLowerCase() === category.toLowerCase());
     }
 
-    if (salesCategoryByLocation[i].category == "Carbonated"){
-        carbonated = [salesCategoryByLocation[i].GuttenPlans , salesCategoryByLocation[i].EB_Public_Library , salesCategoryByLocation[i].Brunswick_Sq_Mall , salesCategoryByLocation[i].Earle_Asphalt]
-    }
-
-    if (salesCategoryByLocation[i].category == "Non Carbonated"){
-        nonCarbonated = [salesCategoryByLocation[i].GuttenPlans , salesCategoryByLocation[i].EB_Public_Library , salesCategoryByLocation[i].Brunswick_Sq_Mall , salesCategoryByLocation[i].Earle_Asphalt]
-    }
-
-    if (salesCategoryByLocation[i].category == "Water"){
-        water = [salesCategoryByLocation[i].GuttenPlans , salesCategoryByLocation[i].EB_Public_Library , salesCategoryByLocation[i].Brunswick_Sq_Mall , salesCategoryByLocation[i].Earle_Asphalt]
-    }
+    return filteredData;
 }
 
-var ctx5 = document.getElementById('chart5').getContext('2d');
-var myChart = new Chart(ctx5, {
+function updateChart(category, month) {
+    const filteredData = filterData(category, month);
+    const labels = ['GuttenPlans', 'EB_Public_Library', 'Brunswick_Sq_Mall', 'Earle_Asphalt'];
+
+    const datasets = ['Carbonated', 'Food', 'Non Carbonated', 'Water'].map(cat => {
+        const data = filteredData.find(entry => (entry.category || entry.Category).toLowerCase() === cat.toLowerCase()) || {};
+        return {
+            label: cat,
+            data: labels.map(label => parseFloat(data[label] || 0)),
+            backgroundColor: colors[cat].backgroundColor,
+            borderColor: colors[cat].borderColor,
+            borderWidth: 1
+        };
+    });
+
+    chart.data.labels = labels;
+    chart.data.datasets = datasets;
+    chart.update();
+}
+
+// Initialize chart with all data
+const initialData = filterData('all', 'all');
+const initialLabels = ['GuttenPlans', 'EB_Public_Library', 'Brunswick_Sq_Mall', 'Earle_Asphalt'];
+const initialDatasets = ['Carbonated', 'Food', 'Non Carbonated', 'Water'].map(cat => {
+    const data = initialData.find(entry => (entry.category || entry.Category).toLowerCase() === cat.toLowerCase()) || {};
+    return {
+        label: cat,
+        data: initialLabels.map(label => parseFloat(data[label] || 0)),
+        backgroundColor: colors[cat].backgroundColor,
+        borderColor: colors[cat].borderColor,
+        borderWidth: 1
+    };
+});
+
+// Create chart
+const chart = new Chart(ctx5, {
     type: 'bar',
     data: {
-        labels: ['GuttenPlans', 'EB Public Library','Brunswick Sq Mall','Earle Asphalt',],
-        datasets: [
-            {
-            label: 'Food',
-            data: food,
-            backgroundColor: 'rgba(128, 0, 0, 0.5)',
-            borderColor: 'rgba(128, 0, 0, 1)', 
-            borderWidth: 1
-        }, {
-            label: 'Carbonated',
-            data: carbonated,
-            backgroundColor: 'rgba(255, 0, 0, 0.5)', 
-            borderColor: 'rgba(255, 0, 0, 1)', 
-            borderWidth: 1
-        }, {
-            label: 'Non Carbonated',
-            data: nonCarbonated,
-            backgroundColor: 'rgba(255, 40, 0, 0.5)', 
-            borderColor: 'rgba(255, 40, 0, 1)', 
-            borderWidth: 1
-        }, {
-            label: 'Water',
-            data: water,
-            backgroundColor: 'rgba(248, 131, 121, 0.5)', 
-            borderColor: 'rgba(248, 131, 121, 1)', 
-            borderWidth: 1
-        }
-    ]
+        labels: initialLabels,
+        datasets: initialDatasets
     },
     options: {
         scales: {
@@ -75,4 +89,21 @@ var myChart = new Chart(ctx5, {
             }
         }
     }
+});
+
+// Add event listeners to dropdowns
+categoryFilter.addEventListener('change', () => {
+    const selectedCategory = categoryFilter.value;
+    const selectedMonth = monthFilter.value;
+    updateChart(selectedCategory, selectedMonth);
+});
+
+monthFilter.addEventListener('change', () => {
+    const selectedCategory = categoryFilter.value;
+    const selectedMonth = monthFilter.value;
+    updateChart(selectedCategory, selectedMonth);
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    updateChart('all', 'all');
 });
