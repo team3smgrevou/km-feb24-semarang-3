@@ -269,64 +269,6 @@ body {
 	margin: 7px;
 }
 
-
-/* WHAT WE LEARN */
-.what-learn h3 {
-    font-size: 24px;
-    font-weight: 600;
-    color: var(--dark);
-    margin-bottom: 20px;
-}
-
-.what-learn ol {
-    list-style-type: disc; 
-    margin-left: 20px; 
-}
-
-.what-learn ol li {
-    margin-bottom: 10px; 
-}
-
-
-/* CONCLUSION */
-.conclusion h3 {
-    font-size: 24px;
-    font-weight: 600;
-    color: var(--dark);
-    margin-bottom: 20px;
-}
-.conclusion .indented {
-    margin-right: 15px; 
-    color: var(--dark-grey);
-    line-height: 1.6;
-	margin-right: 10px;
-}
-.conclusion .indented:before {
-    content: "\2192"; 
-    margin-right: 10px;
-}
-#content main .actions {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-	grid-gap: 24px;
-	margin-top: 36px;
-}
-#content main .actions button {
-	padding: 24px;
-	background: var(--light);
-	border-radius: 20px;
-	display: flex;
-	align-items: center;
-	grid-gap: 24px;
-}
-#content main .actions button:hover {
-	background-color: var(--dark-orange);
-}
-#contet main .indented {
-	margin-left: 30px;
-}
-
-
 /*FILTERING*/
 .filter-container {
 	display: flex;
