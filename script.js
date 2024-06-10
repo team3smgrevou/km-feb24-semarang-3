@@ -32,37 +32,61 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    const searchButton = document.querySelector('#content nav form .form-input button');
-    const searchButtonIcon = document.querySelector('#content nav form .form-input button .bx');
-    const searchForm = document.querySelector('#content nav form');
+    
 
-    if (searchButton && searchButtonIcon && searchForm) {
-        searchButton.addEventListener('click', function (e) {
-            if (window.innerWidth < 576) {
-                e.preventDefault();
-                searchForm.classList.toggle('show');
-                if (searchForm.classList.contains('show')) {
-                    searchButtonIcon.classList.replace('bx-search', 'bx-x');
-                } else {
-                    searchButtonIcon.classList.replace('bx-x', 'bx-search');
-                }
-            }
-        });
-    }
 
-    if (window.innerWidth < 768 && sidebar) {
-        sidebar.classList.add('hide');
-    } else if (window.innerWidth > 576 && searchButtonIcon && searchForm) {
-        searchButtonIcon.classList.replace('bx-x', 'bx-search');
-        searchForm.classList.remove('show');
-    }
 
-    window.addEventListener('resize', function () {
-        if (this.innerWidth > 576 && searchButtonIcon && searchForm) {
-            searchButtonIcon.classList.replace('bx-x', 'bx-search');
-            searchForm.classList.remove('show');
+
+    const filterContainer = document.querySelector('.filter-container');
+    const categoryFilter = document.getElementById('category-filter');
+    const monthFilter = document.getElementById('month-filter');
+
+    function adjustFilterDisplay() {
+        if (window.innerWidth <= 576) {
+            filterContainer.style.flexDirection = 'column';
+            categoryFilter.style.width = '100%';
+            monthFilter.style.width = '100%';
+        } else {
+            filterContainer.style.flexDirection = 'row';
+            categoryFilter.style.width = 'auto';
+            monthFilter.style.width = 'auto';
         }
-    });
+    }
+
+    // Adjust filters on initial load
+    adjustFilterDisplay();
+
+    // Adjust filters on window resize
+    window.addEventListener('resize', adjustFilterDisplay);
+
+    // Function to adjust wrapper layout
+    function adjustWrapperDisplay() {
+        const wrapperContainer = document.querySelector('.wrapper-container');
+        const wrappers = document.querySelectorAll('.wrapper');
+        if (wrapperContainer) {
+            if (window.innerWidth <= 768) {
+                wrapperContainer.style.flexDirection = 'column';
+                wrappers.forEach(wrapper => {
+                    wrapper.style.width = '100%';
+                    wrapper.style.marginBottom = '100%'; // Add some margin between stacked wrappers
+                });
+            } else {
+                wrapperContainer.style.flexDirection = 'row';
+                wrappers.forEach(wrapper => {
+                    wrapper.style.width = 'auto';
+                    wrapper.style.marginBottom = 'auto'; // Remove margin when side by side
+                });
+            }
+        } 
+    }
+
+    // Adjust wrappers on initial load
+    adjustWrapperDisplay();
+
+    // Adjust wrappers on window resize
+    window.addEventListener('resize', adjustWrapperDisplay);
+
+
 
     // Ambil elemen dropdown
     const dataFilter = document.getElementById('data-filter');
@@ -112,4 +136,5 @@ document.addEventListener('DOMContentLoaded', function() {
         // Inisiasi dashboard dengan data awal
         requestData(dataFilter.value);
     }
+
 });
