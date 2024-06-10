@@ -21,10 +21,14 @@ li {
 	--light: #F9F9F9;
 	--light-blue: #CFE8FF;
 	--grey: #eee;
-	--dark-grey: #AAAAAA;
+	--dark-grey: #333333;
 	--dark: #342E37;
 	--red: #DB504A;
 	--orange: #FD7238;
+}
+
+html {
+	overflow-x: hidden;
 }
 
 body {
@@ -57,8 +61,8 @@ body {
 	font-weight: 700;
 	height: 56px;
 	display: flex;
-	align-items: center;
-	color: var(--black);
+	align-items:center;
+	color: var(--dark);
 	position: sticky;
 	top: 0;
 	left: 0;
@@ -82,11 +86,14 @@ body {
 	margin-left: 6px;
 	border-radius: 48px 0 0 48px;
 	padding: 4px;
+	transition: background 0.3s, margin-left 0.3s;
 }
 #sidebar .side-menu li.active {
 	background: var(--grey);
 	position: relative;
+	margin-left: 0;
 }
+
 #sidebar .side-menu li.active::before {
 	content: '';
 	position: absolute;
@@ -120,19 +127,19 @@ body {
 	color: var(--dark);
 	white-space: nowrap;
 	overflow-x: hidden;
-}
-#sidebar .side-menu.top li.active a {
-	color: var(--black);
+	overflow-x: 20px;
+	transition: color 0.3s, background 0.3s;
 }
 #sidebar.hide .side-menu li a {
 	width: calc(48px - (4px * 2));
 	transition: width .3s ease;
 }
-#sidebar .side-menu li a.logout {
-	color: var(--red);
+#sidebar .side-menu.top li.active a {
+	color: var(--dark);
 }
 #sidebar .side-menu.top li a:hover {
-	color: var(--blue);
+	color: var(--red);
+	background: var(--light);
 }
 #sidebar .side-menu li a .bx {
 	min-width: calc(60px  - ((4px + 6px) * 2));
@@ -140,6 +147,10 @@ body {
 	justify-content: center;
 }
 /* SIDEBAR */
+
+
+
+
 
 /* CONTENT */
 #content {
@@ -152,6 +163,8 @@ body {
 	width: calc(100% - 60px);
 	left: 60px;
 }
+
+
 
 /* NAVBAR */
 #content nav {
@@ -166,64 +179,17 @@ body {
 	top: 0;
 	left: 0;
 	z-index: 1000;
+	justify-content: space-between;
 }
-#content nav::before {
-	content: '';
-	position: absolute;
-	width: 40px;
-	height: 40px;
-	bottom: -40px;
-	left: 0;
-	box-shadow: -20px -20px 0 var(--light);
-}
+
 #content nav a {
 	color: var(--dark);
 }
 #content nav .bx.bx-menu {
 	cursor: pointer;
-	color: var(--dark);
-}
-#content nav .nav-link {
-	font-size: 16px;
-	transition: .3s ease;
-}
-#content nav .nav-link:hover {
-	color: var(--blue);
-}
-#content nav form {
-	max-width: 400px;
-	width: 100%;
-	margin-right: auto;
-}
-#content nav form .form-input {
-	display: flex;
-	align-items: center;
-	height: 36px;
-}
-#content nav form .form-input input {
-	flex-grow: 1;
-	padding: 0 16px;
-	height: 100%;
-	border: none;
-	background: var(--grey);
-	border-radius: 36px 0 0 36px;
-	outline: none;
-	width: 100%;
-	color: var(--dark);
-}
-#content nav form .form-input button {
-	width: 36px;
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: var(--red);
-	color: var(--light);
-	font-size: 18px;
-	border: none;
-	outline: none;
-	border-radius: 0 36px 36px 0;
-	cursor: pointer;
+    color: var(--dark);
+    margin-right: auto; /* Menggeser ikon ke kiri */
+    padding-left: 10px;
 }
 #content nav .profile img {
 	width: 36px;
@@ -233,6 +199,9 @@ body {
 }
 /* NAVBAR */
 
+
+
+
 /* MAIN */
 #content main {
 	width: 100%;
@@ -241,41 +210,130 @@ body {
 	max-height: calc(100vh - 56px);
 	overflow-y: auto;
 }
-#content main .head-title {
+
+
+/*TEAM MANAGE*/
+#content main .wrapper-container {
+    display:grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, ));
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 20px; /* Add some gap between the boxes */
+	padding: 20px;
+}
+#content main .wrapper {
+	background: #fff;
+	width: 580px;
+	border-radius: 15px;
+	padding: 20px;
+	margin: 20px;
+	box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.4);
+	transform: translateZ(0);
+	will-change: transform, opacity;
+}
+#content main h2 {
+	text-align: center;
+}
+#content main hr {
+	width: 100px;
+	margin: 10px auto;
+}
+#content main .members {
 	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	grid-gap: 16px;
+	justify-content: center;
 	flex-wrap: wrap;
 }
-#content main .head-title .left h1 {
-	font-size: 36px;
-	font-weight: 600;
-	margin-bottom: 10px;
-	color: var(--dark);
+#content main .team-mem {
+	margin: 8px;
 }
-#content main .head-title .left .breadcrumb {
-	display: flex;
-	align-items: center;
-	grid-gap: 16px;
+#content main .team-mem h4 a{
+	color: black !important;
+	text-decoration: none;
 }
-#content main .head-title .left .breadcrumb li {
-	color: var(--dark);
+#content main .team-mem h4 a::visited {
+	color: blue !important;
 }
-#content main .head-title .left .breadcrumb li a {
-	color: var(--dark-grey);
-	pointer-events: none;
+#content main .team-mem a::hover {
+	text-decoration: underline;
 }
-#content main .head-title .left .breadcrumb li a.active {
-	color: var(--blue);
-	pointer-events: unset;
+#content main img {
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+	border-radius: 50%;
+	margin: 10px;
+}
+#content main h4 {
+	text-align: center;
+	font-size: 12px;
+	margin: 7px;
 }
 
+
+/* WHAT WE LEARN */
+.what-learn h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 20px;
+}
+
+.what-learn ol {
+    list-style-type: disc; 
+    margin-left: 20px; 
+}
+
+.what-learn ol li {
+    margin-bottom: 10px; 
+}
+
+
+/* CONCLUSION */
+.conclusion h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 20px;
+}
+.conclusion .indented {
+    margin-right: 15px; 
+    color: var(--dark-grey);
+    line-height: 1.6;
+	margin-right: 10px;
+}
+.conclusion .indented:before {
+    content: "\2192"; 
+    margin-right: 10px;
+}
+#content main .actions {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	grid-gap: 24px;
+	margin-top: 36px;
+}
+#content main .actions button {
+	padding: 24px;
+	background: var(--light);
+	border-radius: 20px;
+	display: flex;
+	align-items: center;
+	grid-gap: 24px;
+}
+#content main .actions button:hover {
+	background-color: var(--dark-orange);
+}
+#contet main .indented {
+	margin-left: 30px;
+}
+
+
+/*FILTERING*/
 .filter-container {
 	display: flex;
 	gap: 10px; 
-	justify-content: center; 
+	justify-content: flex-end; 
 	margin: 20px 0; 
+	margin-left: auto;
   }
   
   .filter-container select {
@@ -300,6 +358,8 @@ body {
 	background-color: #e8e8e8; 
   }
 
+
+  
 #content main .box-info {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -322,7 +382,7 @@ body {
 	color: var(--dark);
 }
 #content main .box-info li .text p {
-	color: var(--dark);	
+	color: var(--dark-grey);	
 }
 
 #content main .box{
@@ -342,16 +402,6 @@ body {
 	height: 400px;
 	/* edited */
 }
-#content main .box li .bx {
-	width: 80px;
-	height: 80px;
-	border-radius: 10px;
-	font-size: 36px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
 #content main .box li .text h3 {
 	font-size: 24px;
 	font-weight: 600;
@@ -388,9 +438,6 @@ body {
 	font-size: 24px;
 	font-weight: 600;
 }
-#content main .table-data .head .bx {
-	cursor: pointer;
-}
 
 #content main .table-data .order {
 	flex-grow: 1;
@@ -415,30 +462,8 @@ body {
 	grid-gap: 12px;
 	padding-left: 6px;
 }
-#content main .table-data .order table td img {
-	width: 36px;
-	height: 36px;
-	border-radius: 50%;
-	object-fit: cover;
-}
 #content main .table-data .order table tbody tr:hover {
 	background: var(--grey);
-}
-#content main .table-data .order table tr td .status {
-	font-size: 10px;
-	padding: 6px 16px;
-	color: var(--light);
-	border-radius: 20px;
-	font-weight: 700;
-}
-#content main .table-data .order table tr td .status.completed {
-	background: var(--blue);
-}
-#content main .table-data .order table tr td .status.process {
-	background: var(--yellow);
-}
-#content main .table-data .order table tr td .status.pending {
-	background: var(--orange);
 }
 /* MAIN */
 /* CONTENT */
@@ -467,3 +492,48 @@ footer p {
 }
 
 
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+	#sidebar {
+		width: 200px;
+	}
+
+	#content {
+		width: calc(100% - 60px);
+		left: 200px;
+	}
+}
+
+
+@media screen and (max-width: 576px) {
+	#content main .box-info {
+		grid-template-columns: 1fr;
+	}
+
+	#content main .table-data .head {
+		min-width: 420px;
+	}
+	#content main .table-data .order table {
+		min-width: 420px;
+	}
+}
+
+@media (max-width: 600px) {
+    #content main .wrapper-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px; /* Kurangi jarak antara kotak untuk layar kecil */
+    }
+
+    #content main .wrapper {
+        width: 90%; /* Mengatur lebar menjadi 90% dari kontainer */
+        margin: 10px;
+        padding: 15px;
+    }
+}
