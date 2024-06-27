@@ -1,7 +1,12 @@
-import typeByLocation from './typeByLocation.json' assert { type: 'json' };
+fetch('./typeByLocation.json')
+     .then(response => response.json())
+     .then(data => {
+        console.log(data);
+        initializeChart(data);
+     })
+    .catch(erro => console.error('Error loading JSON:', error));
 
-console.log(typeByLocation);
-
+function initializeChart(typeByLocation) {
 const ctx3 = document.getElementById('chart3').getContext('2d');
 const categoryFilter = document.getElementById('category-filter');
 const monthFilter = document.getElementById('month-filter');
@@ -88,3 +93,6 @@ monthFilter.addEventListener('change', () => {
     const selectedMonth = monthFilter.value;
     updateChart(selectedCategory, selectedMonth);
 });
+}
+
+
